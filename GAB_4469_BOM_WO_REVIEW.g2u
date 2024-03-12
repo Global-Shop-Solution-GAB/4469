@@ -1,0 +1,1244 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.F_BOM..Create(BaseForm)
+Gui.F_BOM..Caption("BOM Work Order Review")
+Gui.F_BOM..Size(19200,10410)
+Gui.F_BOM..MinX(0)
+Gui.F_BOM..MinY(0)
+Gui.F_BOM..Position(0,0)
+Gui.F_BOM..BackColor(-2147483633)
+Gui.F_BOM..MousePointer(0)
+Gui.F_BOM..Event(UnLoad,Close)
+Gui.F_BOM..AlwaysOnTop(False)
+Gui.F_BOM..FontName("Tahoma")
+Gui.F_BOM..FontSize(8.25)
+Gui.F_BOM..ControlBox(True)
+Gui.F_BOM..MaxButton(True)
+Gui.F_BOM..MinButton(True)
+Gui.F_BOM..Moveable(True)
+Gui.F_BOM..Sizeable(True)
+Gui.F_BOM..ShowInTaskBar(True)
+Gui.F_BOM..TitleBar(True)
+Gui.F_BOM.lbl1.Create(Label,"Work Order",True,1170,255,0,90,135,True,0,"Arial",10,-2147483633,0,0)
+Gui.F_BOM.lbl1.BorderStyle(0)
+Gui.F_BOM.txtJob.Create(TextBox,"",True,1080,315,0,105,375,True,2,"Arial",9,-2147483643,1)
+Gui.F_BOM.txtJob.Event(LostFocus,JobSelected)
+Gui.F_BOM.txtDesc.Create(TextBox,"",True,3615,315,0,4755,375,True,0,"Arial",9,-2147483643,1)
+Gui.F_BOM.txtDesc.Locked(True)
+Gui.F_BOM.lbl3.Create(Label,"Run Qty",True,840,255,0,9105,135,True,0,"Arial",10,-986896,0,0)
+Gui.F_BOM.lbl3.BorderStyle(0)
+Gui.F_BOM.txtWOQty.Create(TextBox,"",True,1410,315,0,8460,375,True,1,"Arial",9,-2147483643,1)
+Gui.F_BOM.txtWOQty.NumericOnly(True)
+Gui.F_BOM.txtWOQty.Locked(True)
+Gui.F_BOM.lbl4.Create(Label,"Completed Qty",True,1515,255,0,10005,135,True,0,"Arial",10,-986896,0,0)
+Gui.F_BOM.lbl4.BorderStyle(0)
+Gui.F_BOM.txtWOComp.Create(TextBox,"",True,1335,315,0,10050,375,True,1,"Arial",9,-2147483643,1)
+Gui.F_BOM.txtWOComp.NumericOnly(True)
+Gui.F_BOM.txtWOComp.Locked(True)
+Gui.F_BOM.lbl5.Create(Label,"Part Description",True,1935,255,0,4725,135,True,0,"Arial",9,-2147483633,0,0)
+Gui.F_BOM.lbl5.BorderStyle(0)
+Gui.F_BOM.lbl6.Create(Label,"Part Number",True,1935,255,0,1965,135,True,0,"Arial",9,-2147483633,0,0)
+Gui.F_BOM.lbl6.BorderStyle(0)
+Gui.F_BOM.txtPart.Create(TextBox,"",True,2625,315,0,1995,375,True,0,"Arial",9,-2147483643,1)
+Gui.F_BOM.txtPart.Locked(True)
+Gui.F_BOM.cmdBrowseJob.Create(Button)
+Gui.F_BOM.cmdBrowseJob.Size(465,465)
+Gui.F_BOM.cmdBrowseJob.Position(1245,255)
+Gui.F_BOM.cmdBrowseJob.Caption("^")
+Gui.F_BOM.cmdBrowseJob.FontSize(9)
+Gui.F_BOM.cmdBrowseJob.Event(Click,BrowseJob)
+Gui.F_BOM.cmdBrowseJob.Enabled(True)
+Gui.F_BOM.cmdBrowseJob.Visible(True)
+Gui.F_BOM.cmdBrowseJob.Zorder(0)
+Gui.F_BOM.cmdBrowseJob.FontName("Tahoma")
+Gui.F_BOM.lbl2.Create(Label,"Summary of Job Operations & Details",True,4305,315,0,165,930,True,0,"Arial",9,-2147483633,0,0)
+Gui.F_BOM.lbl2.BorderStyle(0)
+Gui.F_BOM.lbl7.Create(Label,"Total BOM Actual Cost",True,1995,255,0,14640,135,True,0,"Arial",9,-2147483633,0,0)
+Gui.F_BOM.lbl7.BorderStyle(0)
+Gui.F_BOM.txtBOMCost.Create(TextBox,"",True,2235,315,0,14280,375,True,1,"Arial",9,-2147483643,1)
+Gui.F_BOM.txtBOMCost.NumericOnly(1)
+Gui.F_BOM.txtBOMCost.Locked(True)
+Gui.F_BOM.txtBOMLabor.Create(TextBox,"",True,1545,315,0,12570,375,True,1,"Arial",9,-2147483643,1)
+Gui.F_BOM.txtBOMLabor.NumericOnly(1)
+Gui.F_BOM.txtBOMLabor.Locked(True)
+Gui.F_BOM.lbl8.Create(Label,"Total Labour Hours",True,1680,255,0,12525,135,True,0,"Arial",9,-2147483633,0,0)
+Gui.F_BOM.lbl8.BorderStyle(0)
+Gui.F_BOM.chkInclude.Create(CheckBox)
+Gui.F_BOM.chkInclude.Size(3285,450)
+Gui.F_BOM.chkInclude.Position(5130,885)
+Gui.F_BOM.chkInclude.Caption("Include Level 0 Details")
+Gui.F_BOM.chkInclude.FontSize(9)
+Gui.F_BOM.chkInclude.Enabled(True)
+Gui.F_BOM.chkInclude.Visible(True)
+Gui.F_BOM.chkInclude.Zorder(0)
+Gui.F_BOM.chkInclude.FontName("Tahoma")
+Gui.F_BOM.SplitContainer1.Create(SplitContainer)
+Gui.F_BOM.SplitContainer1.Enabled(True)
+Gui.F_BOM.SplitContainer1.Visible(True)
+Gui.F_BOM.SplitContainer1.Zorder(0)
+Gui.F_BOM.SplitContainer1.Size(18870,8070)
+Gui.F_BOM.SplitContainer1.Position(165,1500)
+Gui.F_BOM.SplitContainer1.Orientation(1)
+Gui.F_BOM.SplitContainer1.SplitterPosition(2625)
+Gui.F_BOM.SplitContainer1.Collapsed(False)
+Gui.F_BOM.SplitContainer1.Anchor(15)
+Gui.F_BOM.tabDetail.Create(Tab)
+Gui.F_BOM.tabDetail.Size(18870,5175)
+Gui.F_BOM.tabDetail.Position(0,0)
+Gui.F_BOM.tabDetail.FontSize(9)
+Gui.F_BOM.tabDetail.Enabled(True)
+Gui.F_BOM.tabDetail.Visible(True)
+Gui.F_BOM.tabDetail.Zorder(0)
+Gui.F_BOM.tabDetail.FontName("Tahoma")
+Gui.F_BOM.tabDetail.Parent("SplitContainer1",1)
+Gui.F_BOM.tabDetail.Dock(5)
+Gui.F_BOM.tabDetail.Anchor(15)
+Gui.F_BOM.tabDetail.Tabs(4)
+Gui.F_BOM.tabDetail.SetTab(0)
+Gui.F_BOM.tabDetail.Caption("Material")
+Gui.F_BOM.tabDetail.SetTab(1)
+Gui.F_BOM.tabDetail.Caption("Labour")
+Gui.F_BOM.tabDetail.SetTab(2)
+Gui.F_BOM.tabDetail.Caption("Outside")
+Gui.F_BOM.tabDetail.SetTab(3)
+Gui.F_BOM.tabDetail.Caption("Others")
+Gui.F_BOM.GsGCMat.Create(GsGridControl)
+Gui.F_BOM.GsGCMat.Size(18840,4515)
+Gui.F_BOM.GsGCMat.Position(0,0)
+Gui.F_BOM.GsGCMat.Parent("tabDetail",0)
+Gui.F_BOM.GsGCMat.Enabled(True)
+Gui.F_BOM.GsGCMat.Visible(True)
+Gui.F_BOM.GsGCMat.Zorder(0)
+Gui.F_BOM.GsGCMat.Anchor(15)
+Gui.F_BOM.GsGCMat.Dock(5)
+Gui.F_BOM.GsGCLab.Create(GsGridControl)
+Gui.F_BOM.GsGCLab.Size(18600,3705)
+Gui.F_BOM.GsGCLab.Position(105,75)
+Gui.F_BOM.GsGCLab.Parent("tabDetail",1)
+Gui.F_BOM.GsGCLab.Enabled(True)
+Gui.F_BOM.GsGCLab.Visible(True)
+Gui.F_BOM.GsGCLab.Zorder(0)
+Gui.F_BOM.GsGCOut.Create(GsGridControl)
+Gui.F_BOM.GsGCOut.Size(18840,4950)
+Gui.F_BOM.GsGCOut.Position(0,0)
+Gui.F_BOM.GsGCOut.Parent("tabDetail",2)
+Gui.F_BOM.GsGCOut.Enabled(True)
+Gui.F_BOM.GsGCOut.Visible(True)
+Gui.F_BOM.GsGCOut.Zorder(0)
+Gui.F_BOM.GsGCOut.Dock(5)
+Gui.F_BOM.GsGCOth.Create(GsGridControl)
+Gui.F_BOM.GsGCOth.Size(18840,4515)
+Gui.F_BOM.GsGCOth.Position(0,0)
+Gui.F_BOM.GsGCOth.Parent("tabDetail",3)
+Gui.F_BOM.GsGCOth.Enabled(True)
+Gui.F_BOM.GsGCOth.Visible(True)
+Gui.F_BOM.GsGCOth.Zorder(0)
+Gui.F_BOM.GsGCOth.Dock(5)
+Gui.F_BOM.GsGCBOM.Create(GsGridControl)
+Gui.F_BOM.GsGCBOM.Size(18870,2625)
+Gui.F_BOM.GsGCBOM.Position(0,0)
+Gui.F_BOM.GsGCBOM.Event(RowCellClick,gvBOM_Click)
+Gui.F_BOM.GsGCBOM.Enabled(True)
+Gui.F_BOM.GsGCBOM.Visible(True)
+Gui.F_BOM.GsGCBOM.Zorder(0)
+Gui.F_BOM.GsGCBOM.Parent("SplitContainer1",0)
+Gui.F_BOM.GsGCBOM.Dock(5)
+Gui.F_BOM.GsGCBOM.Anchor(15)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+'V.Global.fMinHeight.Declare(Float,10455)
+'V.Global.fMinWidth.Declare(Float,19305)
+'V.Global.fRefHeight.Declare
+'V.Global.fRefWidth.Declare
+V.Global.iLevel.Declare(Long,0)
+V.Global.sJob.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+V.Local.sIconPath.Declare
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+'F.Data.Dictionary.CreateFromSQL("Job","conx","SELECT JOB as WO, JOB FROM V_JOB_HEADER WHERE SUFFIX = '000' AND QTY_ORDER > QTY_COMPLETED AND DATE_CLOSED = '1900-01-01' ORDER BY JOB",2)
+'F.Data.DataTable.CreateFromSQL("dtJobHead","conx","SELECT Job, Part, Description, qty_order as Run, qty_completed as Completed, DATE_DUE as DueDate FROM V_JOB_HEADER WHERE SUFFIX = '000' AND QTY_ORDER > QTY_COMPLETED AND DATE_CLOSED = '1900-01-01' ORDER BY JOB",True)
+F.Data.Dictionary.CreateFromSQL("Job","conx","SELECT JOB as WO, JOB FROM V_JOB_HEADER WHERE SUFFIX = '000' AND DATE_CLOSED = '1900-01-01' ORDER BY JOB",2)
+F.Data.DataTable.CreateFromSQL("dtJobHead","conx","SELECT Job, Part, Description, qty_order as Run, qty_completed as Completed, DATE_DUE as DueDate FROM V_JOB_HEADER WHERE SUFFIX = '000' AND DATE_CLOSED = '1900-01-01' ORDER BY JOB",True)
+gui.F_BOM.txtJob.AddAutoCompleteItem("Job","Dictionary")
+
+F.Intrinsic.String.Concat(V.Caller.GlobalDir,"\ART\gss2.ico",V.Local.sIconPath)
+Gui.F_BOM..Icon(V.Local.sIconPath)
+Gui.F_BOM.tabDetail.SetTab(0)
+
+Gui.F_BOM..Show
+Program.Sub.Main.End
+
+Program.Sub.Close.Start
+F.Data.Dictionary.Close("Job")
+F.Data.DataTable.Close("dtJobHead")
+F.Intrinsic.Control.If(V.DataTable.dtJob.Exists,=,True)
+	F.Data.DataTable.Close("dtJob")
+F.Intrinsic.Control.EndIf
+F.ODBC.Connection!conx.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Close.End
+
+Program.Sub.LoadBOM.Start
+V.Local.bExist.Declare
+V.Local.fAct.Declare
+V.Local.fEst.Declare
+V.Local.fLabour.Declare
+V.Local.fRatio.Declare
+V.Local.fTemp.Declare
+V.Local.i1.Declare
+V.Local.i2.Declare
+V.Local.iPrev.Declare
+V.Local.iRow.Declare
+V.Local.sCondition.Declare
+V.Local.sDTChild.Declare
+V.Local.sDTName.Declare
+V.Local.sDTNameParent.Declare
+V.Local.sDTNamePrev.Declare
+V.Local.sDTParent.Declare
+V.Local.sDVName.Declare
+V.Local.sGVName.Declare
+V.Local.sParent.Declare
+V.Local.sRet.Declare
+V.Local.sSQL.Declare
+V.Local.sSuffix.Declare
+V.Local.sTemp.Declare
+
+F.Intrinsic.UI.InvokeWaitDialog("Loading BOM Work Order","BOM Work Order Review [APAC]")
+
+F.Intrinsic.Control.If(V.DataTable.dtMat$dtDetail.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtMat$dtDetail.RowCount,>,0)
+		F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtMat$dtDetail.RowCount--,0,-1)
+			F.Data.DataTable.DeleteRow("dtMat$dtDetail",V.Local.i1)
+		F.Intrinsic.Control.Next(V.Local.i1)
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.Close("dtMat$dtDetail","dvMatDetail")
+	F.Data.DataTable.Close("dtMat$dtDetail")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtMat.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtMat.RowCount,>,0)
+		F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtMat.RowCount--,0,-1)
+			F.Data.DataTable.DeleteRow("dtMat",V.Local.i1)
+		F.Intrinsic.Control.Next(V.Local.i1)
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.Close("dtMat","dvMat")
+	F.Data.DataTable.Close("dtMat")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtLab$dtDetail.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtLab$dtDetail.RowCount,>,0)
+		F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtLab$dtDetail.RowCount--,0,-1)
+			F.Data.DataTable.DeleteRow("dtLab$dtDetail",V.Local.i1)
+		F.Intrinsic.Control.Next(V.Local.i1)
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.Close("dtLab$dtDetail","dvLabDetail")
+	F.Data.DataTable.Close("dtLab$dtDetail")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtLab.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtLab.RowCount,>,0)
+		F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtLab.RowCount--,0,-1)
+			F.Data.DataTable.DeleteRow("dtLab",V.Local.i1)
+		F.Intrinsic.Control.Next(V.Local.i1)
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.Close("dtLab","dvLab")
+	F.Data.DataTable.Close("dtLab")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtOut.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtOut.RowCount,>,0)
+		F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtOut.RowCount--,0,-1)
+			F.Data.DataTable.DeleteRow("dtOut",V.Local.i1)
+		F.Intrinsic.Control.Next(V.Local.i1)
+	F.Intrinsic.Control.EndIf
+	F.Data.DataTable.Close("dtOut")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtOth.Exists,=,True)
+	F.Intrinsic.Control.If(V.DataTable.dtOth.RowCount,>,0)
+		F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtOth.RowCount--,0,-1)
+			F.Data.DataTable.DeleteRow("dtOth",V.Local.i1)
+		F.Intrinsic.Control.Next(V.Local.i1)
+	F.Intrinsic.Control.EndIf
+	F.Data.DataTable.Close("dtOth")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Global.iLevel,>,0)
+F.Intrinsic.Control.AndIf(V.DataTable.dtBOM1.Exists,=,True)
+	F.Intrinsic.Control.For(V.Local.i1,V.Global.iLevel,1,-1)
+		F.Intrinsic.Control.If(V.Local.i1,=,1)
+			V.Local.sDTName.Set("dtBOM1")
+		F.Intrinsic.Control.Else
+			V.Local.sDTName.Set("dtBOM1")
+			F.Intrinsic.Control.For(V.Local.i2,2,V.Local.i1,1)
+				F.Intrinsic.String.Build("{0}$dtBOM{1}",V.Local.sDTName.Trim,V.Local.i2,V.Local.sDTName)
+			F.Intrinsic.Control.Next(V.Local.i2)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.Build("dvBOM{0}",V.Local.i1,V.Local.sDVName)
+		F.Data.DataView.Close(V.Local.sDTName,V.Local.sDVName)
+		F.Data.DataTable.Close(V.Local.sDTName)
+	F.Intrinsic.Control.Next(V.Local.i1)
+F.Intrinsic.Control.EndIf
+
+V.Global.iLevel.Set(0)
+
+V.Global.sJob.Set(V.Screen.F_BOM!txtJob.Text)
+
+F.Intrinsic.Control.If(V.Global.sJob.Trim,<>,"")	
+	F.Intrinsic.Control.CallSub(loadbomlevel,"sSuffix","000","iLevel",1)
+	
+	F.Intrinsic.Variable.ArgExists("iStop",V.Local.bExist)
+	F.Intrinsic.Control.If(V.Local.bExist,=,True)
+		F.Intrinsic.UI.Msgbox("The selected work order does not have any child component","BOM Work Order Review [APAC]")
+		F.Intrinsic.UI.CloseWaitDialog
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtBOM1.RowCount,>,0)
+		F.Data.DataView.Create("dtBOM1","dvBOM1")
+		Gui.F_BOM.GsGCBOM.AddGridviewFromDataview("gvBOM1","dtBOM1","dvBOM1")
+		F.Intrinsic.Control.If(V.Global.iLevel,>,1)
+			'If there is level 2 or higher, build the datatable relationship
+			F.Intrinsic.Control.For(V.Local.i1,2,V.Global.iLevel,1)
+				F.Intrinsic.Math.Sub(V.Local.i1,1,V.Local.iPrev)
+				F.Intrinsic.Control.If(V.Local.iPrev,=,1)
+					V.Local.sDTParent.Set("dtBOM1")
+					V.Local.sDTChild.Set("dtBOM1$dtBOM2")
+					F.Data.DataTable.Compute("dtBOM1","SUM(Actual)","",V.Local.fAct)
+				F.Intrinsic.Control.Else
+					V.Local.sDTParent.Set(V.Local.sDTChild)
+					V.Local.sDTChild.Set("dtBOM1")
+					F.Intrinsic.Control.For(V.Local.i2,2,V.Local.i1,1)
+						F.Intrinsic.String.Build("{0}$dtBOM{1}",V.Local.sDTChild.Trim,V.Local.i2,V.Local.sDTChild)
+					F.Intrinsic.Control.Next(V.Local.i2)
+				F.Intrinsic.Control.EndIf
+	
+				F.Intrinsic.String.Build("dtBOM{0}",V.Local.i1,V.Local.sDTName)
+				F.Intrinsic.String.Build("dvBOM{0}",V.Local.i1,V.Local.sDVName)
+				F.Intrinsic.String.Build("gvBOM{0}",V.Local.i1,V.Local.sGVName)
+				F.Data.DataTable.Compute(V.Local.sDTName,"SUM(Actual)","",V.Local.fTemp)
+				F.Intrinsic.Math.Add(V.Local.fAct,V.Local.fTemp,V.Local.fAct)
+				F.Data.DataTable.Clone(V.Local.sDTName,V.Local.sDTChild,True)
+				F.Data.DataTable.Merge(V.Local.sDTName,V.Local.sDTChild,False,1)
+				F.Data.DataTable.AddRelation(V.Local.sDTParent,"Suffix",V.Local.sDTChild,"ParentSuffix")
+				F.Data.DataView.Create(V.Local.sDTChild,V.Local.sDVName)
+				Gui.F_BOM.GsGCBOM.AddGridviewFromDataview(V.Local.sGVName,"dtBOM1",V.Local.sDVName)
+				F.Data.DataTable.Close(V.Local.sDTName)
+			F.Intrinsic.Control.Next(V.Local.i1)
+		F.Intrinsic.Control.EndIf
+		Gui.F_BOM.GsGCBOM.MainView("gvBOM1")
+		'Add PARENT cost
+		F.Intrinsic.String.Build("select sum(dollars_estimated) as Estimated, sum(dollars_actual) as Actual from v_job_operations where job = '{0}' and suffix = '000'",V.Global.sJob.Trim,V.Local.sSQL)
+		F.ODBC.Connection!conx.ExecuteAndReturn(V.Local.sSQL,V.Local.fTemp)
+		F.Intrinsic.Math.Add(V.Local.fTemp,0,V.Local.fTemp)
+		F.Intrinsic.Math.Add(V.Local.fAct,V.Local.fTemp,V.Local.fAct)
+		F.Intrinsic.String.Format(V.Local.fAct,"#,0.00",V.Local.sTemp)
+		Gui.F_BOM.txtBOMCost.Text(V.Local.sTemp)
+		'Set grid style for every level
+		F.Intrinsic.Control.For(V.Local.i1,1,V.Global.iLevel,1)
+			F.Intrinsic.String.Build("gvBOM{0}",V.Local.i1,V.Local.sGVName)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"ParentSuffix","Visible",False)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"ParentSuffix","Caption","Parent")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderPO","Caption","Order PO")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderWO","Caption","Order WO")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Run","Caption","Run Qty")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Suffix","CellFontUnderline",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Suffix","CellForeColor",V.Color.Blue)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Suffix","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Part","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Description","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Run","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Completed","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Onhand","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderPO","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderWO","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Estimated","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Actual","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"ParentSuffix","HeaderHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Suffix","CellHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"ParentSuffix","CellHAlignment","Center")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Suffix","MinWidth","45")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Part","MinWidth","110")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Description","MinWidth","200")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Run","MinWidth","60")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Completed","MinWidth","60")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Onhand","MinWidth","60")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderPO","MinWidth","60")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderWO","MinWidth","60")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Estimated","MinWidth","70")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Actual","MinWidth","70")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"ParentSuffix","MinWidth","45")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Run","DisplayCustomNumeric","#,###,##0.00")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Completed","DisplayCustomNumeric","#,###,##0.00")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Onhand","DisplayCustomNumeric","#,###,##0.00")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderPO","DisplayCustomNumeric","#,###,##0.00")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderWO","DisplayCustomNumeric","#,###,##0.00")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Estimated","DisplayCustomNumeric","#,###,##0.00")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Actual","DisplayCustomNumeric","#,###,##0.00")
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Suffix","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Part","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Description","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Run","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Completed","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Onhand","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderPO","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"OnOrderWO","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Estimated","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Actual","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"ParentSuffix","HeaderFontBold",True)
+			Gui.F_BOM.GsGCBOM.SetColumnProperty(V.Local.sGVName.Trim,"Suffix","AllowEdit",False)
+			
+			Gui.F_BOM.GsGCBOM.GetRowCount(V.Local.sGVName,V.Local.iRow)
+			F.Intrinsic.Math.Sub(V.Local.iRow,1,V.Local.iRow)
+			F.Intrinsic.Control.For(V.Local.i2,0,V.Local.iRow,1)
+				Gui.F_BOM.GsGCBOM.GetCellValue(V.Local.sGVName,8,V.Local.i2,V.Local.fEst)
+				Gui.F_BOM.GsGCBOM.GetCellValue(V.Local.sGVName,9,V.Local.i2,V.Local.fAct)
+				Gui.F_BOM.GsGCBOM.GetCellValue(V.Local.sGVName,1,V.Local.i2,V.Local.sSuffix)
+				'Compute actual labour hours
+				F.Intrinsic.String.Build("select sum(hours_worked) from v_job_detail where job = '{0}' and suffix = '{1}' and LMO = 'L'",V.Global.sJob.Trim,V.Local.sSuffix.Trim,V.Local.sSQL)
+				F.ODBC.Connection!conx.ExecuteAndReturn(V.Local.sSQL,V.Local.fTemp)
+				F.Intrinsic.Math.Add(V.Local.fTemp,0,V.Local.fTemp)
+				F.Intrinsic.Math.Add(V.Local.fLabour,V.Local.fTemp,V.Local.fLabour)
+				F.Intrinsic.Control.If(V.Local.fAct,>,V.Local.fEst)
+					Gui.F_BOM.GsGCBOM.SetRowAppearance(V.Local.sGVName,V.Local.i2,"backcolor",V.Color.LtRed)
+					Gui.F_BOM.GsGCBOM.SetRowAppearance(V.Local.sGVName,V.Local.i2,"forecolor","white")
+					Gui.F_BOM.GsGCBOM.SetRowAppearance(V.Local.sGVName,V.Local.i2,"fontbold",True)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.Control.If(V.Local.fEst,<>,0)
+						F.Intrinsic.Math.Div(V.Local.fAct,V.Local.fEst,V.Local.fRatio)
+					F.Intrinsic.Control.Else
+						V.Local.fRatio.Set(0)
+					F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.If(V.Local.fRatio,>,0.9)
+					F.Intrinsic.Control.AndIf(V.Local.fRatio,<=,1)
+						Gui.F_BOM.GsGCBOM.SetRowAppearance(V.Local.sGVName,V.Local.i2,"backcolor",V.Color.Yellow)
+					F.Intrinsic.Control.Else
+						F.Intrinsic.Control.If(V.Local.fRatio,>,0)
+							Gui.F_BOM.GsGCBOM.SetRowAppearance(V.Local.sGVName,V.Local.i2,"backcolor",V.Color.LtGreen)
+						F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Next(V.Local.i2)
+		F.Intrinsic.Control.Next(V.Local.i1)
+		'Compute PARENT labour hours
+		F.Intrinsic.String.Build("select sum(hours_worked) from v_job_detail where job = '{0}' and suffix = '000' and LMO = 'L'",V.Global.sJob.Trim,V.Local.sSQL)
+		F.ODBC.Connection!conx.ExecuteAndReturn(V.Local.sSQL,V.Local.fTemp)
+		F.Intrinsic.Math.Add(V.Local.fTemp,0,V.Local.fTemp)
+		F.Intrinsic.Math.Add(V.Local.fLabour,V.Local.fTemp,V.Local.fLabour)
+		F.Intrinsic.String.Format(V.Local.fLabour,"#,0.0000",V.Local.sTemp)
+		Gui.F_BOM.txtBOMLabor.Text(V.Local.sTemp)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("The selected work order does not have any manufactured part in level 1","BOM Work Order Review [APAC]")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.CloseWaitDialog
+Program.Sub.LoadBOM.End
+
+Program.Sub.BrowseJob.Start
+V.Local.iWidths.Declare
+V.Local.sRet.Declare
+V.Local.sSQL.Declare
+V.Local.sTitles.Declare
+
+'Browse for WO
+'F.Intrinsic.String.Split("WO*!*Part*!*Description*!*Run Qty*!*Completed Qty*!*Due Date","*!*",V.Local.sTitles)
+'F.Intrinsic.String.Split("1000*!*1500*!*3000*!*1200*!*1200*!*1000","*!*",V.Local.iWidths)
+F.Intrinsic.String.Split("WO*!*Part*!*Description*!*Customer Part*!*Run Qty*!*Completed Qty*!*Due Date","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("1000*!*1500*!*3000*!*1500*!*1200*!*1200*!*1000","*!*",V.Local.iWidths)
+
+''V.Local.sSQL.Set("SELECT JOB, PART, DESCRIPTION, QTY_ORDER, QTY_COMPLETED, DATE_DUE FROM V_JOB_HEADER WHERE SUFFIX = '000' AND QTY_ORDER > QTY_COMPLETED AND DATE_CLOSED = '1900-01-01' ORDER BY JOB")
+'V.Local.sSQL.Set("SELECT JOB, PART, DESCRIPTION, QTY_ORDER, QTY_COMPLETED, DATE_DUE FROM V_JOB_HEADER WHERE SUFFIX = '000' AND DATE_CLOSED = '1900-01-01' ORDER BY JOB")
+V.Local.sSQL.Set("SELECT JH.JOB, JH.PART, JH.DESCRIPTION, IC.customer_part, JH.QTY_ORDER, JH.QTY_COMPLETED, JH.DATE_DUE FROM V_JOB_HEADER JH left join v_inv_cross_ref IC on JH.part = IC.part and JH.location = IC.location and JH.customer = IC.customer WHERE JH.SUFFIX = '000' AND JH.QTY_ORDER > JH.QTY_COMPLETED AND JH.DATE_CLOSED = '1900-01-01' ORDER BY JH.JOB")
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Select a BOM Work Order","conx",V.Local.sSQL,V.Local.sTitles,V.Local.iWidths,16000,10000,V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	gui.F_BOM.txtJob.Text(V.Local.sRet(0).Trim)
+	gui.F_BOM.txtPart.Text(V.Local.sRet(1).Trim)
+	Gui.F_BOM.txtDesc.Text(V.Local.sRet(2).Trim)
+	Gui.F_BOM.txtWOQty.Text(V.Local.sRet(3))
+	Gui.F_BOM.txtWOComp.Text(V.Local.sRet(4))
+	F.Intrinsic.Control.CallSub(loadbom)
+F.Intrinsic.Control.EndIf
+Program.Sub.BrowseJob.End
+
+Program.Sub.JobSelected.Start
+V.Local.sFilter.Declare
+V.Local.sJob.Declare
+V.Local.sRet.Declare
+
+V.Local.sJob.Set(V.Screen.F_BOM!txtJob.Text)
+F.Intrinsic.String.Build("Job = '{0}'",V.Local.sJob.Trim,V.Local.sFilter)
+F.Data.DataTable.Select("dtJobHead",V.Local.sFilter,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***NORETURN***")
+	gui.F_BOM.txtJob.Text(V.DataTable.dtJobHead(V.Local.sRet(0)).Job!FieldValTrim)
+	gui.F_BOM.txtPart.Text(V.DataTable.dtJobHead(V.Local.sRet(0)).Part!FieldValTrim)
+	Gui.F_BOM.txtDesc.Text(V.DataTable.dtJobHead(V.Local.sRet(0)).Description!FieldValTrim)
+	Gui.F_BOM.txtWOQty.Text(V.DataTable.dtJobHead(V.Local.sRet(0)).Run!FieldValLong)
+	Gui.F_BOM.txtWOComp.Text(V.DataTable.dtJobHead(V.Local.sRet(0)).Completed!FieldValLong)
+	F.Intrinsic.Control.CallSub(loadbom)
+F.Intrinsic.Control.EndIf
+Program.Sub.JobSelected.End
+
+Program.Sub.LoadBOMLevel.Start
+V.Local.bDT.Declare(Boolean,False)
+V.Local.fAct.Declare
+V.Local.fEst.Declare
+V.Local.i1.Declare
+V.Local.iCLevel.Declare
+V.Local.iLevel.Declare
+V.Local.iRow.Declare
+V.Local.sDTName.Declare
+V.Local.sFilter.Declare
+V.Local.sHeader.Declare
+V.Local.sMessage.Declare
+V.Local.sParentSuffix.Declare
+V.Local.sRet.Declare
+V.Local.sSQL.Declare
+
+V.Local.sParentSuffix.Set(V.Args.sSuffix)
+V.Local.iLevel.Set(V.Args.iLevel)
+F.Intrinsic.String.Build("Load BOM Work Order Level {0} of Suffix {1}",V.Local.iLevel,V.Local.sParentSuffix.Trim,V.Local.sHeader)
+F.Intrinsic.UI.ChangeWaitStatus(V.Local.sHeader)
+F.Intrinsic.String.Build("select JOB.Suffix, JOB.Part, JOB.Description, JOB.qty_order as Run, JOB.qty_completed as Completed, IV.qty_onhand as Onhand, IV.qty_onorder_po as OnOrderPO, IV.qty_onorder_wo as OnOrderWO, JOB.parent_wo as ParentJob, JOB.parent_suffix_parent as ParentSuffix from v_job_header JOB left join v_inventory_mstr IV on JOB.part = IV.part and JOB.location = IV.location where JOB.parent_wo = '{0}' and JOB.parent_suffix_parent = '{1}' order by JOB.suffix",V.Global.sJob.Trim,V.Local.sParentSuffix.Trim,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtJobTemp","Conx",V.Local.sSQL)
+F.Intrinsic.Control.If(V.DataTable.dtJobTemp.RowCount,>,0)
+	'Checking dtBOM exists for every level
+	F.Intrinsic.Control.If(V.DataTable.dtBOM[V.Local.iLevel].Exists,=,True)
+		V.Local.bDT.Set(True)
+	F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.If(V.Local.iLevel,=,1)
+'		F.Intrinsic.Control.If(V.DataTable.dtBOM1.Exists,=,True)
+'			V.Local.bDT.Set(True)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.ElseIf(V.Local.iLevel,=,2)
+'		F.Intrinsic.Control.If(V.DataTable.dtBOM2.Exists,=,True)
+'			V.Local.bDT.Set(True)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.ElseIf(V.Local.iLevel,=,3)
+'		F.Intrinsic.Control.If(V.DataTable.dtBOM3.Exists,=,True)
+'			V.Local.bDT.Set(True)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.ElseIf(V.Local.iLevel,=,4)
+'		F.Intrinsic.Control.If(V.DataTable.dtBOM4.Exists,=,True)
+'			V.Local.bDT.Set(True)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.ElseIf(V.Local.iLevel,=,5)
+'		F.Intrinsic.Control.If(V.DataTable.dtBOM5.Exists,=,True)
+'			V.Local.bDT.Set(True)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.ElseIf(V.Local.iLevel,=,6)
+'		F.Intrinsic.Control.If(V.DataTable.dtBOM6.Exists,=,True)
+'			V.Local.bDT.Set(True)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.ElseIf(V.Local.iLevel,=,7)
+'		F.Intrinsic.Control.If(V.DataTable.dtBOM7.Exists,=,True)
+'			V.Local.bDT.Set(True)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.ElseIf(V.Local.iLevel,=,8)
+'		F.Intrinsic.Control.If(V.DataTable.dtBOM8.Exists,=,True)
+'			V.Local.bDT.Set(True)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.ElseIf(V.Local.iLevel,=,9)
+'		F.Intrinsic.Control.If(V.DataTable.dtBOM9.Exists,=,True)
+'			V.Local.bDT.Set(True)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.EndIf
+	
+	'Build datatable name	
+	F.Intrinsic.String.Build("dtBOM{0}",V.Local.iLevel,V.Local.sDTName)
+	
+	'Update the lowest BOM level
+	F.Intrinsic.Control.If(V.Local.iLevel,>,V.Global.iLevel)
+		V.Global.iLevel.Set(V.Local.iLevel)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.Local.bDT,=,False)
+		'Create new datatable if it does not exist
+		F.Data.DataTable.Create(V.Local.sDTName,True)
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"Part","String")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"Suffix","String")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"Description","String")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"Run","Float")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"Completed","Float")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"Onhand","Float")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"OnOrderPO","Float")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"OnOrderWO","Float")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"Estimated","Float")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"Actual","Float")
+		F.Data.DataTable.AddColumn(V.Local.sDTName,"ParentSuffix","String")
+	F.Intrinsic.Control.EndIf
+	'Fill up the respective datatable
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtJobTemp.RowCount--,1)
+		F.Intrinsic.Math.Add(V.Local.i1,1,V.Local.iRow)
+		F.Intrinsic.String.Build("{0}{1}Part: {2}",V.Local.sHeader.Trim,V.Ambient.NewLine,V.DataTable.dtJobTemp(V.Local.i1).Part!FieldValTrim,V.Local.sMessage)
+		F.Intrinsic.UI.ChangeWaitStatus(V.Local.sMessage,V.Local.iRow,1,V.DataTable.dtJobTemp.RowCount)
+		F.Intrinsic.String.Build("select sum(dollars_estimated) as Estimated, sum(dollars_actual) as Actual from v_job_operations where job = '{0}' and suffix = '{1}'",V.Global.sJob.Trim,V.DataTable.dtJobTemp(V.Local.i1).Suffix!FieldValTrim,V.Local.sSQL)
+		F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		V.Local.fAct.Set(V.ODBC.conx!rst.FieldValFloat!Actual)
+		V.Local.fEst.Set(V.ODBC.conx!rst.FieldValFloat!Estimated)
+		F.ODBC.conx!rst.Close
+		F.Data.DataTable.AddRow(V.Local.sDTName,"Suffix",V.DataTable.dtJobTemp(V.Local.i1).Suffix!FieldValTrim,"Part",V.DataTable.dtJobTemp(V.Local.i1).Part!FieldValTrim,"Description",V.DataTable.dtJobTemp(V.Local.i1).Description!FieldValTrim,"Run",V.DataTable.dtJobTemp(V.Local.i1).Run!FieldValFloat,"Completed",V.DataTable.dtJobTemp(V.Local.i1).Completed!FieldValFloat,"ParentSuffix",V.DataTable.dtJobTemp(V.Local.i1).ParentSuffix!FieldValTrim,"Onhand",V.DataTable.dtJobTemp(V.Local.i1).Onhand!FieldValFloat,"OnOrderPO",V.DataTable.dtJobTemp(V.Local.i1).OnOrderPO!FieldValFloat,"OnOrderWO",V.DataTable.dtJobTemp(V.Local.i1).OnOrderWO!FieldValFloat,"Estimated",V.Local.fEst,"Actual",V.Local.fAct)
+		F.Intrinsic.String.Build("select suffix from v_job_header where parent_wo = '{0}' and parent_suffix_parent = '{1}'",V.Global.sJob.Trim,V.DataTable.dtJobTemp(V.Local.i1).Suffix!FieldValTrim,V.Local.sSQL)
+		F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,False)
+			F.Intrinsic.Math.Add(V.Local.iLevel,1,V.Local.iCLevel)
+			F.Intrinsic.Control.CallSub(loadbomlevel,"sSuffix",V.DataTable.dtJobTemp(V.Local.i1).Suffix!FieldValTrim,"iLevel",V.Local.iCLevel)
+		F.Intrinsic.Control.EndIf
+		F.ODBC.conx!rst.Close
+	F.Intrinsic.Control.Next(V.Local.i1)
+F.Intrinsic.Control.Else
+	F.Intrinsic.Variable.AddRV("iStop",1)
+F.Intrinsic.Control.EndIf
+
+F.Data.DataTable.Close("dtJobTemp")
+Program.Sub.LoadBOMLevel.End
+
+Program.Sub.gvBOM_Click.Start
+V.Local.i1.Declare
+V.Local.sMessage.Declare
+V.Local.sSuffix.Declare
+
+F.Intrinsic.Control.If(V.Args.Column,=,"Suffix")
+	Gui.F_BOM.tabDetail.Visible(False)
+	'Setup datatables
+	F.Intrinsic.Control.If(V.DataTable.dtMat$dtDetail.Exists,=,True)
+		F.Intrinsic.Control.If(V.DataTable.dtMat$dtDetail.RowCount,>,0)
+			F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtMat$dtDetail.RowCount--,0,-1)
+				F.Data.DataTable.DeleteRow("dtMat$dtDetail",V.Local.i1)
+			F.Intrinsic.Control.Next(V.Local.i1)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataView.Close("dtMat$dtDetail","dvMatDetail")
+		F.Data.DataTable.Close("dtMat$dtDetail")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtMat.Exists,=,True)
+		F.Intrinsic.Control.If(V.DataTable.dtMat.RowCount,>,0)
+			F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtMat.RowCount--,0,-1)
+				F.Data.DataTable.DeleteRow("dtMat",V.Local.i1)
+			F.Intrinsic.Control.Next(V.Local.i1)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataView.Close("dtMat","dvMat")
+		F.Data.DataTable.Close("dtMat")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtLab$dtDetail.Exists,=,True)
+		F.Intrinsic.Control.If(V.DataTable.dtLab$dtDetail.RowCount,>,0)
+			F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtLab$dtDetail.RowCount--,0,-1)
+				F.Data.DataTable.DeleteRow("dtLab$dtDetail",V.Local.i1)
+			F.Intrinsic.Control.Next(V.Local.i1)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataView.Close("dtLab$dtDetail","dvLabDetail")
+		F.Data.DataTable.Close("dtLab$dtDetail")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtLab.Exists,=,True)
+		F.Intrinsic.Control.If(V.DataTable.dtLab.RowCount,>,0)
+			F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtLab.RowCount--,0,-1)
+				F.Data.DataTable.DeleteRow("dtLab",V.Local.i1)
+			F.Intrinsic.Control.Next(V.Local.i1)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataView.Close("dtLab","dvLab")
+		F.Data.DataTable.Close("dtLab")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtOut.Exists,=,True)
+		F.Intrinsic.Control.If(V.DataTable.dtOut.RowCount,>,0)
+			F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtOut.RowCount--,0,-1)
+				F.Data.DataTable.DeleteRow("dtOut",V.Local.i1)
+			F.Intrinsic.Control.Next(V.Local.i1)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtOut")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.DataTable.dtOth.Exists,=,True)
+		F.Intrinsic.Control.If(V.DataTable.dtOth.RowCount,>,0)
+			F.Intrinsic.Control.For(V.Local.i1,V.DataTable.dtOth.RowCount--,0,-1)
+				F.Data.DataTable.DeleteRow("dtOth",V.Local.i1)
+			F.Intrinsic.Control.Next(V.Local.i1)
+		F.Intrinsic.Control.EndIf
+		F.Data.DataTable.Close("dtOth")
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataTable.Create("dtMat",True)
+	F.Data.DataTable.AddColumn("dtMat","Suffix","String")
+	F.Data.DataTable.AddColumn("dtMat","Sequence","String")
+	F.Data.DataTable.AddColumn("dtMat","Part","String")
+	F.Data.DataTable.AddColumn("dtMat","Description","String")
+	F.Data.DataTable.AddColumn("dtMat","UM","String")
+	F.Data.DataTable.AddColumn("dtMat","DueDate","Date")
+	F.Data.DataTable.AddColumn("dtMat","Estimated","Float")
+	F.Data.DataTable.AddColumn("dtMat","Actual","Float")
+	F.Data.DataTable.AddColumn("dtMat","Onhand","Float")
+	F.Data.DataTable.AddColumn("dtMat","OnOrderPO","Float")
+	F.Data.DataTable.AddColumn("dtMat","EstCost","Float")
+	F.Data.DataTable.AddColumn("dtMat","ActCost","Float")
+	
+	F.Data.DataTable.Create("dtLab",True)
+	F.Data.DataTable.AddColumn("dtLab","Suffix","String")
+	F.Data.DataTable.AddColumn("dtLab","Sequence","String")
+	F.Data.DataTable.AddColumn("dtLab","WC","String")
+	F.Data.DataTable.AddColumn("dtLab","Description","String")
+	F.Data.DataTable.AddColumn("dtLab","UM","String")
+	F.Data.DataTable.AddColumn("dtLab","DueDate","Date")
+	F.Data.DataTable.AddColumn("dtLab","QtyOpen","Float")
+	F.Data.DataTable.AddColumn("dtLab","QtyComp","Float")
+	F.Data.DataTable.AddColumn("dtLab","Estimated","Float")
+	F.Data.DataTable.AddColumn("dtLab","Actual","Float")
+	F.Data.DataTable.AddColumn("dtLab","EstCost","Float")
+	F.Data.DataTable.AddColumn("dtLab","ActCost","Float")
+	
+	F.Data.DataTable.Create("dtOut",True)
+	F.Data.DataTable.AddColumn("dtOut","Suffix","String")
+	F.Data.DataTable.AddColumn("dtOut","Sequence","String")
+	F.Data.DataTable.AddColumn("dtOut","Operation","String")
+	F.Data.DataTable.AddColumn("dtOut","Description","String")
+	F.Data.DataTable.AddColumn("dtOut","UM","String")
+	F.Data.DataTable.AddColumn("dtOut","DueDate","Date")
+	F.Data.DataTable.AddColumn("dtOut","QtyOpen","Float")
+	F.Data.DataTable.AddColumn("dtOut","QtyComp","Float")
+	F.Data.DataTable.AddColumn("dtOut","EstCost","Float")
+	F.Data.DataTable.AddColumn("dtOut","ActCost","Float")
+	F.Data.DataTable.AddColumn("dtOut","PO","String")
+	
+	F.Data.DataTable.Create("dtOth",True)
+	F.Data.DataTable.AddColumn("dtOth","Suffix","String")
+	F.Data.DataTable.AddColumn("dtOth","Sequence","String")
+	F.Data.DataTable.AddColumn("dtOth","DateSeq","Date")
+	F.Data.DataTable.AddColumn("dtOth","LMO","String")
+	F.Data.DataTable.AddColumn("dtOth","UserID","String")
+	F.Data.DataTable.AddColumn("dtOth","Part","String")
+	F.Data.DataTable.AddColumn("dtOth","Description","String")
+	F.Data.DataTable.AddColumn("dtOth","UM","String")
+	F.Data.DataTable.AddColumn("dtOth","Quantity","String")
+	F.Data.DataTable.AddColumn("dtOth","Labour","String")
+	F.Data.DataTable.AddColumn("dtOth","Overhead","String")
+	F.Data.DataTable.AddColumn("dtOth","Units","String")
+	
+	F.Data.DataTable.Create("dtDetailM",True)
+	F.Data.DataTable.AddColumn("dtDetailM","Suffix","String")
+	F.Data.DataTable.AddColumn("dtDetailM","Sequence","String")
+	F.Data.DataTable.AddColumn("dtDetailM","DateSeq","Date")
+	F.Data.DataTable.AddColumn("dtDetailM","UserID","String")
+	F.Data.DataTable.AddColumn("dtDetailM","Quantity","Float")
+	F.Data.DataTable.AddColumn("dtDetailM","Cost","Float")
+	
+	F.Data.DataTable.Create("dtDetailL",True)
+	F.Data.DataTable.AddColumn("dtDetailL","Suffix","String")
+	F.Data.DataTable.AddColumn("dtDetailL","Sequence","String")
+	F.Data.DataTable.AddColumn("dtDetailL","DateSeq","Date")
+	F.Data.DataTable.AddColumn("dtDetailL","Employee","String")
+	F.Data.DataTable.AddColumn("dtDetailL","WC","String")
+	F.Data.DataTable.AddColumn("dtDetailL","Hours","Float")
+	F.Data.DataTable.AddColumn("dtDetailL","StartTime","String")
+	F.Data.DataTable.AddColumn("dtDetailL","EndTime","String")
+	F.Data.DataTable.AddColumn("dtDetailL","Labour","Float")
+	F.Data.DataTable.AddColumn("dtDetailL","OH","Float")
+	
+	F.Intrinsic.Control.If(V.Screen.F_BOM!chkInclude.Value,=,1)
+		F.Intrinsic.Control.CallSub(loadjobdetails,"sSuffix","000")
+	F.Intrinsic.Control.EndIf
+	
+	'Get the job operations and job details
+	V.Local.sSuffix.Set(V.Args.CellValue)
+	F.Intrinsic.String.Build("Load work order detail for suffix {0} and its child components",V.Local.sSuffix,V.Local.sMessage)
+	F.Intrinsic.UI.InvokeWaitDialog(V.Local.sMessage,"BOM Work Order Review [APAC]")
+	F.Intrinsic.Control.CallSub(loadjobdetails,"sSuffix",V.Local.sSuffix.Trim)
+	
+	F.Data.DataTable.Clone("dtDetailM","dtMat$dtDetail",True)
+	F.Data.DataTable.Merge("dtDetailM","dtMat$dtDetail",False,1)
+	F.Data.DataTable.AddRelation("dtMat","Suffix*!*Sequence","dtMat$dtDetail","Suffix*!*Sequence")
+	F.Data.DataTable.Close("dtDetailM")
+	F.Data.DataView.Create("dtMat","dvMat")
+	F.Data.DataView.Create("dtMat$dtDetail","dvMatDetail")
+	
+	F.Data.DataTable.Clone("dtDetailL","dtLab$dtDetail",True)
+	F.Data.DataTable.Merge("dtDetailL","dtLab$dtDetail",False,1)
+	F.Data.DataTable.AddRelation("dtLab","Suffix*!*Sequence","dtLab$dtDetail","Suffix*!*Sequence")
+	F.Data.DataTable.Close("dtDetailL")
+	F.Data.DataView.Create("dtLab","dvLab")
+	F.Data.DataView.Create("dtLab$dtDetail","dvLabDetail")
+	
+	'Setup the grid
+	Gui.F_BOM.GsGCMat.AddGridviewFromDataview("gvMat","dtMat","dvMat")
+	Gui.F_BOM.GsGCMat.AddGridviewFromDataview("gvMatDetail","dtMat","dvMatDetail")
+	Gui.F_BOM.GsGCMat.MainView("gvMat")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Suffix","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Sequence","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Part","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Description","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","UM","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","DueDate","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Estimated","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Actual","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Onhand","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","OnOrderPO","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","EstCost","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","ActCost","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Suffix","CellHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Sequence","CellHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","UM","CellHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","DueDate","CellHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Suffix","MinWidth","45")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Sequence","MinWidth","50")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Part","MinWidth","110")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Description","MinWidth","200")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","UM","MinWidth","40")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","DueDate","MinWidth","90")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Estimated","MinWidth","80")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Actual","MinWidth","80")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Onhand","MinWidth","80")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","OnOrderPO","MinWidth","90")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","EstCost","MinWidth","90")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","ActCost","MinWidth","90")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","DueDate","Caption","Due Date")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","OnOrderPO","Caption","On Order PO")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","EstCost","Caption","Est. Cost")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","ActCost","Caption","Actual Cost")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","DueDate","DisplayCustomDatetime","d")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Estimated","DisplayCustomNumeric","#,###,##0.0000")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Actual","DisplayCustomNumeric","#,###,##0.0000")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Onhand","DisplayCustomNumeric","#,###,##0.0000")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","OnOrderPO","DisplayCustomNumeric","#,###,##0.0000")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","EstCost","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","ActCost","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Suffix","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Sequence","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Part","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Description","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","UM","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","DueDate","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Estimated","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Actual","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","Onhand","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","OnOrderPO","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","EstCost","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMat","ActCost","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","Suffix","Visible",False)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","Sequence","Visible",False)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","DateSeq","DisplayCustomDatetime","d")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","Quantity","DisplayCustomNumeric","#,###,##0.0000")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","Cost","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","DateSeq","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","Quantity","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","Cost","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","UserID","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","DateSeq","CellHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","UserID","CellHAlignment","Center")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","DateSeq","Caption","Date")
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","DateSeq","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","Quantity","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","Cost","HeaderFontBold",True)
+	Gui.F_BOM.GsGCMat.SetColumnProperty("gvMatDetail","UserID","HeaderFontBold",True)
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtMat$dtDetail.RowCount--,1)
+		Gui.F_BOM.GsGCMat.SetRowAppearance("gvMatDetail",V.Local.i1,"backcolor",V.Color.LtGray)
+	F.Intrinsic.Control.Next(V.Local.i1)
+	
+	Gui.F_BOM.GsGCLab.AddGridviewFromDataview("gvLab","dtLab","dvLab")
+	Gui.F_BOM.GsGCLab.AddGridviewFromDataview("gvLabDetail","dtLab","dvLabDetail")
+	Gui.F_BOM.GsGCLab.MainView("gvLab")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Suffix","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Sequence","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","WC","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Description","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","UM","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","DueDate","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyOpen","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyComp","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Estimated","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Actual","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","EstCost","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","ActCost","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Suffix","CellHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Sequence","CellHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","WC","CellHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","UM","CellHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","DueDate","CellHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Suffix","MinWidth","45")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Sequence","MinWidth","50")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","WC","MinWidth","45")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Description","MinWidth","250")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","UM","MinWidth","40")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","DueDate","MinWidth","90")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyOpen","MinWidth","80")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyComp","MinWidth","90")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Estimated","MinWidth","80")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Actual","MinWidth","80")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","EstCost","MinWidth","90")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","ActCost","MinWidth","90")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","DueDate","Caption","Due Date")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyOpen","Caption","Run Qty")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyComp","Caption","Completed Qty")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Estimated","Caption","Est. Hours")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Actual","Caption","Actual Hours")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","EstCost","Caption","Est. Cost")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","ActCost","Caption","Actual Cost")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","DueDate","DisplayCustomDatetime","d")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyOpen","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyComp","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Estimated","DisplayCustomNumeric","#,###,##0.0000")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Actual","DisplayCustomNumeric","#,###,##0.0000")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","EstCost","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","ActCost","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Suffix","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Sequence","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","WC","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Description","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","UM","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","DueDate","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyOpen","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","QtyComp","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Estimated","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","Actual","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","EstCost","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLab","ActCost","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Suffix","Visible",False)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Sequence","Visible",False)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","DateSeq","DisplayCustomDatetime","d")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Hours","DisplayCustomNumeric","#,###,##0.0000")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Labour","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","OH","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","DateSeq","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Employee","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","WC","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Hours","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","StartTime","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","EndTime","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Labour","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","OH","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","DateSeq","CellHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","WC","CellHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","StartTime","CellHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","EndTime","CellHAlignment","Center")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","DateSeq","Caption","Date")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","StartTime","Caption","Start Time")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","EndTime","Caption","End Time")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","WC","Caption","Workcenter")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","OH","Caption","Overhead")
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","DateSeq","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Employee","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","WC","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Hours","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","StartTime","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","EndTime","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","Labour","HeaderFontBold",True)
+	Gui.F_BOM.GsGCLab.SetColumnProperty("gvLabDetail","OH","HeaderFontBold",True)
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtLab$dtDetail.RowCount--,1)
+		Gui.F_BOM.GsGCLab.SetRowAppearance("gvLabDetail",V.Local.i1,"backcolor",V.Color.LtGray)
+	F.Intrinsic.Control.Next(V.Local.i1)
+	
+	Gui.F_BOM.GsGCOut.AddGridviewFromDatatable("gvOut","dtOut")
+	Gui.F_BOM.GsGCOut.MainView("gvOut")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Suffix","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Sequence","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Operation","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Description","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","UM","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","DueDate","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyOpen","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyComp","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","EstCost","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","ActCost","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","PO","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Suffix","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Sequence","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Operation","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","UM","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","DueDate","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Suffix","MinWidth","45")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Sequence","MinWidth","50")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Operation","MinWidth","60")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Description","MinWidth","250")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","UM","MinWidth","40")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","DueDate","MinWidth","90")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyOpen","MinWidth","90")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyComp","MinWidth","90")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","EstCost","MinWidth","90")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","ActCost","MinWidth","90")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","PO","MinWidth","200")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","DueDate","Caption","Due Date")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyOpen","Caption","Run Qty")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyComp","Caption","Completed Qty")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","EstCost","Caption","Est. Cost")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","ActCost","Caption","Actual Cost")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","DueDate","DisplayCustomDatetime","d")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyOpen","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyComp","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","EstCost","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","ActCost","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Suffix","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Sequence","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Operation","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","Description","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","UM","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","DueDate","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyOpen","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","QtyComp","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","EstCost","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","ActCost","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOut.SetColumnProperty("gvOut","PO","HeaderFontBold",True)
+	
+	Gui.F_BOM.GsGCOth.AddGridviewFromDatatable("gvOth","dtOth")
+	Gui.F_BOM.GsGCOth.MainView("gvOth")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Suffix","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Sequence","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","DateSeq","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","LMO","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","UserID","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Part","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Description","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","UM","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Quantity","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Labour","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Overhead","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Units","HeaderHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Suffix","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Sequence","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","DateSeq","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","LMO","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","UM","CellHAlignment","Center")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","DateSeq","DisplayCustomDatetime","d")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Quantity","DisplayCustomNumeric","#,###,##0.0000")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Labour","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Overhead","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Units","DisplayCustomNumeric","#,###,##0.00")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","UserID","Caption","UserID/ Employee")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Quantity","Caption","Qty/ Work Hours")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Labour","Caption","Material/ Labour Cost")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Overhead","Caption","Overhead Cost")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Units","Caption","Unit Completed")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","DateSeq","Caption","Date")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Suffix","MinWidth","40")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Sequence","MinWidth","45")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","DateSeq","MinWidth","90")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","LMO","MinWidth","30")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","UserID","MinWidth","120")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Part","MinWidth","110")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Description","MinWidth","200")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","UM","MinWidth","30")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Quantity","MinWidth","110")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Labour","MinWidth","120")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Overhead","MinWidth","120")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Units","MinWidth","100")
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Suffix","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Sequence","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","DateSeq","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","LMO","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","UserID","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Part","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Description","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","UM","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Quantity","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Labour","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Overhead","HeaderFontBold",True)
+	Gui.F_BOM.GsGCOth.SetColumnProperty("gvOth","Units","HeaderFontBold",True)
+	
+	Gui.F_BOM.tabDetail.Visible(True)
+	F.Intrinsic.UI.CloseWaitDialog
+F.Intrinsic.Control.EndIf
+Program.Sub.gvBOM_Click.End
+
+Program.Sub.LoadJobDetails.Start
+V.Local.fHours.Declare
+V.Local.fLabour.Declare
+V.Local.fOnhand.Declare
+V.Local.fOnOrderPO.Declare
+V.Local.fOverhead.Declare
+V.Local.i1.Declare
+V.Local.i2.Declare
+V.Local.i3.Declare
+V.Local.iRow.Declare
+V.Local.sFilter.Declare
+V.Local.sMessage.Declare
+V.Local.sPO.Declare
+V.Local.sSQL.Declare
+V.Local.sSuffix.Declare
+V.Local.sTemp.Declare
+V.Local.sTimeEnd.Declare
+V.Local.sTimeStart.Declare
+
+V.Local.sSuffix.Set(V.Args.sSuffix)
+
+F.Intrinsic.String.Build("select Seq, Operation, LMO, Description, UM, Part, units_open as QtyOpen, units_complete as QtyComp, hours_estimated as Estimated, hours_actual as Actual, dollars_estimated as EstCost, dollars_actual as ActCost, date_due as DueDate from v_job_operations where job = '{0}' and suffix = '{1}' and seq < '900000' and (LMO = 'M' or LMO = 'L' or LMO = 'O') order by seq",V.Global.sJob.Trim,V.Local.sSuffix.Trim,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtSeq","Conx",V.Local.sSQL)
+
+F.Intrinsic.Control.If(V.DataTable.dtSeq.RowCount,>,0)
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtSeq.RowCount--,1)
+		F.Intrinsic.Math.Add(V.Local.i1,1,V.Local.iRow)
+		F.Intrinsic.String.Build("Reading work order sequence for suffix {0}",V.Local.sSuffix,V.Local.sMessage)
+		F.Intrinsic.UI.ChangeWaitStatus(V.Local.sMessage,V.Local.iRow,1,V.DataTable.dtSeq.RowCount)
+		F.Intrinsic.Control.If(V.DataTable.dtSeq(V.Local.i1).LMO!FieldValTrim,=,"M")
+			'Material sequence
+			'Retrieve onhand and on order PO
+			F.Intrinsic.String.Build("select qty_onhand, qty_onorder_po from inventory_mstr where part = '{0}'",V.DataTable.dtSeq(V.Local.i1).Part!FieldValTrim,V.Local.sSQL)
+			F.ODBC.Connection!conx.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.ODBC.conx!rst.EOF,=,True)
+				V.Local.fOnhand.Set(0)
+				V.Local.fOnOrderPO.Set(0)
+			F.Intrinsic.Control.Else
+				V.Local.fOnhand.Set(V.ODBC.conx!rst.FieldValFloat!qty_onhand)
+				V.Local.fOnOrderPO.Set(V.ODBC.conx!rst.FieldValFloat!qty_onorder_po)
+			F.Intrinsic.Control.EndIf
+			F.ODBC.conx!rst.Close
+			F.Data.DataTable.AddRow("dtMat","Suffix",V.Local.sSuffix.Trim,"Sequence",V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,"Part",V.DataTable.dtSeq(V.Local.i1).Part!FieldValTrim,"Description",V.DataTable.dtSeq(V.Local.i1).Description!FieldValTrim,"UM",V.DataTable.dtSeq(V.Local.i1).UM!FieldValTrim,"DueDate",V.DataTable.dtSeq(V.Local.i1).DueDate!FieldVal,"Estimated",V.DataTable.dtSeq(V.Local.i1).Estimated!FieldValFloat,"Actual",V.DataTable.dtSeq(V.Local.i1).Actual!FieldValFloat,"Onhand",V.Local.fOnhand,"OnOrderPO",V.Local.fOnOrderPO,"EstCost",V.DataTable.dtSeq(V.Local.i1).EstCost!FieldValFloat,"ActCost",V.DataTable.dtSeq(V.Local.i1).ActCost!FieldValFloat)
+			'Get job detail
+			F.Intrinsic.String.Build("select date_sequence, hours_worked, amount_labor, last_chg_by as UserID from v_job_detail where job = '{0}' and suffix = '{1}' and seq = '{2}' order by date_sequence,sequence_key",V.Global.sJob.Trim,V.Local.sSuffix.Trim,V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,V.Local.sSQL)
+			F.Data.DataTable.CreateFromSQL("dtDetail","Conx",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.DataTable.dtDetail.RowCount,>,0)
+				F.Intrinsic.Control.For(V.Local.i2,0,V.DataTable.dtDetail.RowCount--,1)
+					F.Data.DataTable.AddRow("dtDetailM","Suffix",V.Local.sSuffix.Trim,"Sequence",V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,"DateSeq",V.DataTable.dtDetail(V.Local.i2).date_sequence!FieldVal,"Quantity",V.DataTable.dtDetail(V.Local.i2).hours_worked!FieldValFloat,"Cost",V.DataTable.dtDetail(V.Local.i2).amount_labor!FieldValFloat,"UserID",V.DataTable.dtDetail(V.Local.i2).UserID!FieldValTrim)
+				F.Intrinsic.Control.Next(V.Local.i2)
+			F.Intrinsic.Control.EndIf
+			F.Data.DataTable.Close("dtDetail")
+		F.Intrinsic.Control.ElseIf(V.DataTable.dtSeq(V.Local.i1).LMO!FieldValTrim,=,"L")
+			'Labour sequence
+			F.Data.DataTable.AddRow("dtLab","Suffix",V.Local.sSuffix.Trim,"Sequence",V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,"WC",V.DataTable.dtSeq(V.Local.i1).Part!FieldValTrim,"Description",V.DataTable.dtSeq(V.Local.i1).Description!FieldValTrim,"UM",V.DataTable.dtSeq(V.Local.i1).UM!FieldValTrim,"DueDate",V.DataTable.dtSeq(V.Local.i1).DueDate!FieldVal,"Estimated",V.DataTable.dtSeq(V.Local.i1).Estimated!FieldValFloat,"Actual",V.DataTable.dtSeq(V.Local.i1).Actual!FieldValFloat,"QtyOpen",V.DataTable.dtSeq(V.Local.i1).QtyOpen!FieldValFloat,"QtyComp",V.DataTable.dtSeq(V.Local.i1).QtyComp!FieldValFloat,"EstCost",V.DataTable.dtSeq(V.Local.i1).EstCost!FieldValFloat,"ActCost",V.DataTable.dtSeq(V.Local.i1).ActCost!FieldValFloat)
+			F.Intrinsic.String.Build("select date_sequence as DateSeq, sequence_key as KeySeq, Empl, Employee, Machine, hours_worked as WorkHour, amount_labor as Labour, amt_overhead as OH, start_time as StartTime, end_time as EndTime from v_job_detail where job = '{0}' and suffix = '{1}' and seq = '{2}' order by date_sequence desc, employee desc, sequence_key desc",V.Global.sJob.Trim,V.Local.sSuffix.Trim,V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,V.Local.sSQL)
+			F.Data.DataTable.CreateFromSQL("dtDetail","Conx",V.Local.sSQL)
+			F.Data.DataTable.AddColumn("dtDetail","Check","Boolean")
+			F.Data.DataTable.SetValue("dtDetail",-1,"Check",False)
+			F.Intrinsic.Control.If(V.DataTable.dtDetail.RowCount,>,0)
+				F.Intrinsic.Control.For(V.Local.i2,0,V.DataTable.dtDetail.RowCount--,1)
+					F.Intrinsic.Control.If(V.DataTable.dtDetail(V.Local.i2).Check!FieldVal,=,False)
+						'Reformat start time and end time
+						V.Local.sTimeStart.Set(V.DataTable.dtDetail(V.Local.i2).StartTime!FieldValTrim)
+						F.Intrinsic.String.Left(V.Local.sTimeStart,2,V.Local.sTemp)
+						F.Intrinsic.String.Right(V.Local.sTimeStart,2,V.Local.sTimeStart)
+						F.Intrinsic.String.Build("{0}:{1}",V.Local.sTemp.Trim,V.Local.sTimeStart.Trim,V.Local.sTimeStart)
+						V.Local.sTimeEnd.Set(V.DataTable.dtDetail(V.Local.i2).EndTime!FieldValTrim)
+						F.Intrinsic.String.Left(V.Local.sTimeEnd,2,V.Local.sTemp)
+						F.Intrinsic.String.Right(V.Local.sTimeEnd,2,V.Local.sTimeend)
+						F.Intrinsic.String.Build("{0}:{1}",V.Local.sTemp.Trim,V.Local.sTimeEnd.Trim,V.Local.sTimeEnd)
+						'Calculate total work hours of an employee on a machine
+						F.Intrinsic.String.Build("DateSeq = '{0}' and Empl = '{1}' and Machine = '{2}'",V.DataTable.dtDetail(V.Local.i2).DateSeq!FieldVal,V.DataTable.dtDetail(V.Local.i2).Empl!FieldValTrim,V.DataTable.dtDetail(V.Local.i2).Machine!FieldValTrim,V.Local.sFilter)
+						F.Data.DataTable.Compute("dtDetail","SUM(WorkHour)",V.Local.sFilter,V.Local.fHours)
+						F.Data.DataTable.Compute("dtDetail","SUM(Labour)",V.Local.sFilter,V.Local.fLabour)
+						F.Data.DataTable.Compute("dtDetail","SUM(OH)",V.Local.sFilter,V.Local.fOverhead)
+						F.Data.DataTable.Select("dtDetail",V.Local.sFilter,V.Local.sTemp)
+						F.Intrinsic.String.Split(V.Local.sTemp,"*!*",V.Local.sTemp)
+						F.Intrinsic.Control.For(V.Local.i3,0,V.Local.sTemp.UBound,1)
+							F.Data.DataTable.SetValue("dtDetail",V.Local.sTemp(V.Local.i3),"Check",True)
+						F.Intrinsic.Control.Next(V.Local.i3)
+						F.Data.DataTable.AddRow("dtDetailL","Suffix",V.Local.sSuffix.Trim,"Sequence",V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,"DateSeq",V.DataTable.dtDetail(V.Local.i2).DateSeq!FieldVal,"Employee",V.DataTable.dtDetail(V.Local.i2).Employee!FieldValTrim,"WC",V.DataTable.dtDetail(V.Local.i2).Machine!FieldValTrim,"Hours",V.Local.fHours,"StartTime",V.Local.sTimeStart,"EndTime",V.Local.sTimeEnd,"Labour",V.Local.fLabour,"OH",V.Local.fOverhead)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.Next(V.Local.i2)
+			F.Intrinsic.Control.EndIf
+			F.Data.DataTable.Close("dtDetail")
+		F.Intrinsic.Control.ElseIf(V.DataTable.dtSeq(V.Local.i1).LMO!FieldValTrim,=,"O")
+			'Outside sequence
+			'Retrieve PO number
+			V.Local.sPO.Set("")
+			F.Intrinsic.String.Build("select purchase_order, record_no from v_po_lines where job = '{0}' and suffix = '{1}' and sequence = '{2}'",V.Global.sJob.Trim,V.Local.sSuffix.Trim,V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,V.Local.sSQL)
+			F.Data.DataTable.CreateFromSQL("dtPO","Conx",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.DataTable.dtPO.RowCount,>,0)
+				F.Intrinsic.Control.For(V.Local.i2,0,V.DataTable.dtPO.RowCount--,1)
+					F.Intrinsic.String.Build("{0}-{1}",V.DataTable.dtPO(V.Local.i2).purchase_order!FieldValTrim,V.DataTable.dtPO(V.Local.i2).record_no!FieldValTrim,V.Local.sTemp)
+					F.Intrinsic.Control.If(V.Local.sPO.Trim,=,"")
+						V.Local.sPO.Set(V.Local.sTemp.Trim)
+					F.Intrinsic.Control.Else
+						F.Intrinsic.string.Build("{0}, {1}",V.Local.sPO,V.Local.sTemp.Trim,V.Local.sPO)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.Next(V.Local.i2)
+			F.Intrinsic.Control.EndIf
+			F.Data.DataTable.Close("dtPO")
+			F.Data.DataTable.AddRow("dtOut","Suffix",V.Local.sSuffix.Trim,"Sequence",V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,"Operation",V.DataTable.dtSeq(V.Local.i1).Operation!FieldValTrim,"Description",V.DataTable.dtSeq(V.Local.i1).Description!FieldValTrim,"UM",V.DataTable.dtSeq(V.Local.i1).UM!FieldValTrim,"DueDate",V.DataTable.dtSeq(V.Local.i1).DueDate!FieldVal,"QtyOpen",V.DataTable.dtSeq(V.Local.i1).QtyOpen!FieldValFloat,"QtyComp",V.DataTable.dtSeq(V.Local.i1).QtyComp!FieldValFloat,"EstCost",V.DataTable.dtSeq(V.Local.i1).EstCost!FieldValFloat,"ActCost",V.DataTable.dtSeq(V.Local.i1).ActCost!FieldValFloat,"PO",V.Local.sPO.Trim)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.i1)
+F.Intrinsic.Control.EndIf
+F.Data.DataTable.Close("dtSeq")
+
+F.Intrinsic.String.Build("select Seq, LMO, date_sequence as DateSeq, Employee, Description, UM, Part, Machine, pieces_compltd as Units, hours_worked as Quantity, amount_labor as Labour, amt_overhead as OH, last_chg_by as UserID from v_job_detail where job = '{0}' and suffix = '{1}' and seq > '900000' and LMO = 'Z' order by seq desc, date_sequence desc, sequence_key desc",V.Global.sJob.Trim,V.Local.sSuffix.Trim,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtSeq","Conx",V.Local.sSQL)
+F.Intrinsic.Control.If(V.DataTable.dtSeq.RowCount,>,0)
+	F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtSeq.RowCount--,1)
+		F.Intrinsic.Math.Add(V.Local.i1,1,V.Local.iRow)
+		F.Intrinsic.String.Build("Reading work order miscellaneous detail for suffix {0}",V.Local.sSuffix,V.Local.sMessage)
+		F.Intrinsic.UI.ChangeWaitStatus(V.Local.sMessage,V.Local.iRow,1,V.DataTable.dtSeq.RowCount)
+		F.Intrinsic.Control.If(V.DataTable.dtSeq(V.Local.i1).LMO!FieldValTrim,=,"M")
+			F.Data.DataTable.AddRow("dtOth","Suffix",V.Local.sSuffix,"Sequence",V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,"DateSeq",V.DataTable.dtSeq(V.Local.i1).DateSeq!FieldVal,"LMO",V.DataTable.dtSeq(V.Local.i1).LMO!FieldValTrim,"UserID",V.DataTable.dtSeq(V.Local.i1).UserID!FieldValTrim,"Part",V.DataTable.dtSeq(V.Local.i1).Part!FieldValTrim,"Description",V.DataTable.dtSeq(V.Local.i1).Description!FieldValTrim,"UM",V.DataTable.dtSeq(V.Local.i1).UM!FieldValTrim,"Quantity",V.DataTable.dtSeq(V.Local.i1).Quantity!FieldValFloat,"Labour",V.DataTable.dtSeq(V.Local.i1).Labour!FieldValFloat,"Overhead",V.DataTable.dtSeq(V.Local.i1).OH!FieldValFloat,"Units",V.DataTable.dtSeq(V.Local.i1).Units!FieldValFloat)
+		F.Intrinsic.Control.ElseIf(V.DataTable.dtSeq(V.Local.i1).LMO!FieldValTrim,=,"L")
+			F.Data.DataTable.AddRow("dtOth","Suffix",V.Local.sSuffix,"Sequence",V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,"DateSeq",V.DataTable.dtSeq(V.Local.i1).DateSeq!FieldVal,"LMO",V.DataTable.dtSeq(V.Local.i1).LMO!FieldValTrim,"UserID",V.DataTable.dtSeq(V.Local.i1).Employee!FieldValTrim,"Part",V.DataTable.dtSeq(V.Local.i1).Part!FieldValTrim,"Description",V.DataTable.dtSeq(V.Local.i1).Machine!FieldValTrim,"UM",V.DataTable.dtSeq(V.Local.i1).UM!FieldValTrim,"Quantity",V.DataTable.dtSeq(V.Local.i1).Quantity!FieldValFloat,"Labour",V.DataTable.dtSeq(V.Local.i1).Labour!FieldValFloat,"Overhead",V.DataTable.dtSeq(V.Local.i1).OH!FieldValFloat,"Units",V.DataTable.dtSeq(V.Local.i1).Units!FieldValFloat)
+		F.Intrinsic.Control.ElseIf(V.DataTable.dtSeq(V.Local.i1).LMO!FieldValTrim,=,"O")
+			F.Data.DataTable.AddRow("dtOth","Suffix",V.Local.sSuffix,"Sequence",V.DataTable.dtSeq(V.Local.i1).Seq!FieldValTrim,"DateSeq",V.DataTable.dtSeq(V.Local.i1).DateSeq!FieldVal,"LMO",V.DataTable.dtSeq(V.Local.i1).LMO!FieldValTrim,"UserID",V.DataTable.dtSeq(V.Local.i1).UserID!FieldValTrim,"Part",V.DataTable.dtSeq(V.Local.i1).Part!FieldValTrim,"Description",V.DataTable.dtSeq(V.Local.i1).Description!FieldValTrim,"UM",V.DataTable.dtSeq(V.Local.i1).UM!FieldValTrim,"Quantity",V.DataTable.dtSeq(V.Local.i1).Quantity!FieldValFloat,"Labour",V.DataTable.dtSeq(V.Local.i1).Labour!FieldValFloat,"Overhead",V.DataTable.dtSeq(V.Local.i1).OH!FieldValFloat,"Units",V.DataTable.dtSeq(V.Local.i1).Units!FieldValFloat)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.i1)
+F.Intrinsic.Control.endif
+F.Data.DataTable.Close("dtSeq")
+
+F.Intrinsic.Control.If(V.Local.sSuffix.Trim,<>,"000")
+	F.Intrinsic.String.Build("select suffix from v_job_header where parent_wo = '{0}' and parent_suffix_parent = '{1}'",V.Global.sJob.Trim,V.Local.sSuffix.Trim,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtLevel","Conx",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.DataTable.dtLevel.RowCount,>,0)
+		F.Intrinsic.Control.For(V.Local.i1,0,V.DataTable.dtLevel.RowCount--,1)
+			F.Intrinsic.Control.CallSub(loadjobdetails,"sSuffix",V.DataTable.dtLevel(V.Local.i1).suffix!FieldValTrim)
+		F.Intrinsic.Control.Next(V.Local.i1)
+	F.Intrinsic.Control.EndIf
+	F.Data.DataTable.Close("dtLevel")
+F.Intrinsic.Control.EndIf
+Program.Sub.LoadJobDetails.End
+
+'Program.Sub.ResizeScreen.Start
+'V.Local.fH.Declare
+'V.Local.fdX.Declare
+'V.Local.fdY.Declare
+'V.Local.fNewHeight.Declare
+'V.Local.fNewWidth.Declare
+'V.Local.fNewX.Declare
+'V.Local.fNewY.Declare
+
+''Limit minimum screen size
+'F.Intrinsic.Control.If(V.Screen.F_BOM.Width,<,V.Global.fMinWidth)
+'F.Intrinsic.Control.Andif(V.Screen.F_BOM.Height,<,V.Global.fMinHeight)
+'	Gui.F_BOM..Size(V.Global.fMinWidth,V.Global.fMinHeight)
+'F.Intrinsic.Control.Else
+'	F.Intrinsic.Control.If(V.Screen.F_BOM.Width,<,V.Global.fMinWidth)
+'		Gui.F_BOM..Size(V.Global.fMinWidth,V.Screen.F_BOM.Height)
+'	F.Intrinsic.Control.ElseIf(V.Screen.F_BOM.Height,<,V.Global.fMinHeight)
+'		Gui.F_BOM..Size(V.Screen.F_BOM.Width,V.Global.fMinHeight)
+'	F.Intrinsic.Control.EndIf
+'F.Intrinsic.Control.EndIf
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+
+''Get the ratio of screen size change
+'F.Intrinsic.Math.Div(V.Screen.F_BOM.Width,V.Global.fRefWidth,V.Local.fdX)
+'F.Intrinsic.Math.div(V.Screen.F_BOM.Height,V.Global.fRefHeight,V.Local.fdY)
+''Get GsGCBOM new width and height (reference)
+'F.Intrinsic.Math.Mult(V.Screen.F_BOM!GsGCBOM.Width,V.Local.fdX,V.Local.fNewWidth)
+'F.Intrinsic.Math.Mult(V.Screen.F_BOM!GsGCBOM.Height,V.Local.fdY,V.Local.fNewHeight)
+''Calculate how big GsGCBOM height change
+'F.Intrinsic.Math.Sub(V.Local.fNewHeight,V.Screen.F_BOM!GsGCBOM.Height,V.Local.fH)
+'Gui.F_BOM.GsGCBOM.Size(V.Local.fNewWidth,V.Local.fNewHeight)
+'F.Intrinsic.Math.Add(V.Screen.F_BOM!lbl2.Top,V.Local.fH,V.Local.fNewY)
+'Gui.F_BOM.lbl2.CurrentY(V.Local.fNewY)
+'Gui.F_BOM.chkInclude.CurrentY(V.Local.fNewY)
+'F.Intrinsic.Math.Add(V.Screen.F_BOM!tabDetail.Top,V.Local.fH,V.Local.fNewY)
+'Gui.F_BOM.tabDetail.CurrentY(V.Local.fNewY)
+'F.Intrinsic.Math.Mult(V.Screen.F_BOM!tabDetail.Width,V.Local.fdX,V.Local.fNewWidth)
+'F.Intrinsic.Math.Mult(V.Screen.F_BOM!tabDetail.Height,V.Local.fdY,V.Local.fNewHeight)
+'Gui.F_BOM.tabDetail.Size(V.Local.fNewWidth,V.Local.fNewHeight)
+'F.Intrinsic.Math.Mult(V.Screen.F_BOM!GsGCMat.Width,V.Local.fdX,V.Local.fNewWidth)
+'F.Intrinsic.Math.Mult(V.Screen.F_BOM!GsGCMat.Height,V.Local.fdY,V.Local.fNewHeight)
+'Gui.F_BOM.GsGCMat.Size(V.Local.fNewWidth,V.Local.fNewHeight)
+'Gui.F_BOM.GsGCLab.Size(V.Local.fNewWidth,V.Local.fNewHeight)
+'Gui.F_BOM.GsGCOut.Size(V.Local.fNewWidth,V.Local.fNewHeight)
+'Gui.F_BOM.GsGCOth.Size(V.Local.fNewWidth,V.Local.fNewHeight)
+'V.Global.fRefHeight.Set(V.Screen.F_BOM.Height)
+'V.Global.fRefWidth.Set(V.Screen.F_BOM.Width)
+'Program.Sub.ResizeScreen.End
+
+Program.Sub.Comments.Start
+${$0$}$BOM WO Review$}$MHERTANTO$}$20/6/2017 5:30:12 AM$}$False
+${$3$}$0$}$$}$0$}$-1$}$$}$12:00:00 AM$}$This program views a BOM work order in a tree-like structure where a parent can be expanded to see its children. In addition, operations and details of every work order can also be viewed. When a level 1 work order is selected, all of its level 2, level 3, etc would be shown. This program will help users who would like to do partial WIP to FG of a BOM work order.
+${$5$}$2.0.0.0$}$2
+${$6$}$tdjohan$}$20210125161727913$}$8rAQhOSvlohpQhMDm1j544LwmwXnRbkhwronOQraohMLAochPVgzrOM9HnbUQ6Av3mOMlutKYR0=
+Program.Sub.Comments.End
